@@ -1,0 +1,1588 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Mateo Moncada - Customer Master Data Analyst especializado en SAP Business One, automatización y desarrollo web">
+    <meta name="keywords" content="Data Analyst, SAP Business One, Master Data, Automatización, Desarrollo Web">
+    <meta name="author" content="Mateo Moncada">
+    <title>Mateo Moncada - Portfolio Profesional</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='grad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%2300D9FF;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%237B2FFF;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='20' fill='url(%23grad)'/%3E%3Ctext x='50' y='70' font-family='Arial, sans-serif' font-size='45' font-weight='bold' fill='white' text-anchor='middle'%3EMM%3C/text%3E%3C/svg%3E">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0A0E27;
+            --secondary: #1A1F3A;
+            --accent: #00D9FF;
+            --accent-alt: #7B2FFF;
+            --text: #E8E9F3;
+            --text-muted: #9CA3AF;
+            --card-bg: rgba(26, 31, 58, 0.6);
+            --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-2: linear-gradient(135deg, #00D9FF 0%, #7B2FFF 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--primary);
+            color: var(--text);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Fondo animado con partículas */
+        .bg-animated {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background:
+                radial-gradient(circle at 20% 50%, rgba(123, 47, 255, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(0, 217, 255, 0.15) 0%, transparent 50%),
+                var(--primary);
+            animation: gradientShift 15s ease infinite;
+        }
+
+        @keyframes gradientShift {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.8;
+            }
+        }
+
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: var(--accent);
+            border-radius: 50%;
+            opacity: 0.3;
+            animation: float 20s infinite ease-in-out;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0) translateX(0);
+            }
+
+            50% {
+                transform: translateY(-100px) translateX(50px);
+            }
+        }
+
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 1.5rem 5%;
+            background: rgba(10, 14, 39, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            animation: slideDown 0.8s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 900;
+            background: var(--gradient-2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-2);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .language-selector {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+            margin-left: 2rem;
+        }
+
+        .lang-btn {
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: var(--text-muted);
+            padding: 0.4rem 0.8rem;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .lang-btn:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .lang-btn.active {
+            background: var(--gradient-2);
+            border-color: transparent;
+            color: white;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8rem 5% 0;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 1400px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-text {
+            animation: fadeInLeft 1s ease;
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .hero-text h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.8rem;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            font-weight: 900;
+        }
+
+        .gradient-text {
+            background: var(--gradient-2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-text p {
+            font-size: 1.3rem;
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-block;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: var(--gradient-2);
+            color: white;
+            box-shadow: 0 10px 30px rgba(0, 217, 255, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 217, 255, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text);
+            border: 2px solid var(--accent);
+        }
+
+        .btn-secondary:hover {
+            background: var(--accent);
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .hero-visual {
+            position: relative;
+            animation: fadeInRight 1s ease;
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .code-window {
+            background: var(--secondary);
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .window-header {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .window-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .dot-red {
+            background: #FF5F57;
+        }
+
+        .dot-yellow {
+            background: #FFBD2E;
+        }
+
+        .dot-green {
+            background: #28CA42;
+        }
+
+        .code-content {
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            line-height: 1.8;
+        }
+
+        .code-line {
+            opacity: 0;
+            animation: typeIn 0.5s forwards;
+        }
+
+        .code-line:nth-child(1) {
+            animation-delay: 0.3s;
+        }
+
+        .code-line:nth-child(2) {
+            animation-delay: 0.5s;
+        }
+
+        .code-line:nth-child(3) {
+            animation-delay: 0.7s;
+        }
+
+        .code-line:nth-child(4) {
+            animation-delay: 0.9s;
+        }
+
+        .code-line:nth-child(5) {
+            animation-delay: 1.1s;
+        }
+
+        @keyframes typeIn {
+            from {
+                opacity: 0;
+                transform: translateX(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .keyword {
+            color: #FF79C6;
+        }
+
+        .function {
+            color: #50FA7B;
+        }
+
+        .string {
+            color: #F1FA8C;
+        }
+
+        .comment {
+            color: #6272A4;
+        }
+
+        /* Sección de Perfil */
+        .section {
+            padding: 8rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-align: center;
+            font-weight: 900;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 1.2rem;
+            margin-bottom: 4rem;
+        }
+
+        .profile-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            animation: fadeInUp 0.8s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .profile-card p {
+            font-size: 1.15rem;
+            line-height: 1.9;
+            color: var(--text-muted);
+        }
+
+        /* Sección de Proyectos */
+        .projects-grid {
+            display: grid;
+            gap: 3rem;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            animation: fadeInUp 0.8s ease;
+            position: relative;
+        }
+
+        .project-card:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .project-card:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        .project-card:nth-child(4) {
+            animation-delay: 0.6s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 70px rgba(0, 217, 255, 0.2);
+            border-color: var(--accent);
+        }
+
+        .project-header {
+            background: var(--gradient-2);
+            padding: 2.5rem 2.5rem 1.5rem;
+            position: relative;
+        }
+
+        .project-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 5rem;
+            font-weight: 900;
+            opacity: 0.2;
+            position: absolute;
+            top: -20px;
+            right: 20px;
+            line-height: 1;
+        }
+
+        .project-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+            color: white;
+            font-weight: 700;
+        }
+
+        .project-company {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.1rem;
+        }
+
+        .project-content {
+            padding: 2.5rem;
+        }
+
+        .star-section {
+            margin-bottom: 2rem;
+        }
+
+        .star-label {
+            font-weight: 700;
+            color: var(--accent);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.75rem;
+            display: block;
+        }
+
+        .star-content {
+            color: var(--text-muted);
+            line-height: 1.8;
+            font-size: 1rem;
+        }
+
+        .star-content ul {
+            margin-left: 1.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .star-content li {
+            margin-bottom: 0.5rem;
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .result-item {
+            background: rgba(0, 217, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 3px solid var(--accent);
+        }
+
+        .result-item strong {
+            color: var(--accent);
+            font-size: 0.9rem;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Skills Pills */
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 2rem;
+        }
+
+        .skill-pill {
+            background: rgba(123, 47, 255, 0.2);
+            color: var(--text);
+            padding: 0.5rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            border: 1px solid rgba(123, 47, 255, 0.3);
+            transition: all 0.3s;
+        }
+
+        .skill-pill:hover {
+            background: rgba(123, 47, 255, 0.4);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 3rem 5%;
+            background: var(--secondary);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .social-links a {
+            color: var(--text);
+            font-size: 1.5rem;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .social-links a:hover {
+            color: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        /* Add Project Button */
+        .add-project-section {
+            text-align: center;
+            margin-top: 4rem;
+            padding: 3rem;
+            background: rgba(0, 217, 255, 0.05);
+            border-radius: 20px;
+            border: 2px dashed rgba(0, 217, 255, 0.3);
+        }
+
+        .add-project-section h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+
+        .add-project-section p {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 2.8rem;
+            }
+
+            .cta-buttons {
+                justify-content: center;
+            }
+
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .language-selector {
+                margin-left: 1rem;
+            }
+
+            .section-title {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            header {
+                padding: 1rem 3%;
+            }
+
+            nav {
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+
+            .logo {
+                font-size: 1.3rem;
+            }
+
+            .nav-links {
+                gap: 0.8rem;
+                font-size: 0.85rem;
+            }
+
+            .language-selector {
+                margin-left: 0;
+            }
+
+            .hero {
+                padding: 6rem 5% 0;
+            }
+
+            .hero-text h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero-text p {
+                font-size: 1.1rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .project-title {
+                font-size: 1.8rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Selection */
+        ::selection {
+            background: var(--accent);
+            color: var(--primary);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Fondo animado -->
+    <div class="bg-animated"></div>
+    <div class="particles" id="particles"></div>
+
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">Mateo Moncada</div>
+            <div style="display: flex; align-items: center;">
+                <ul class="nav-links">
+                    <li><a href="#inicio" data-es="Inicio" data-en="Home">Inicio</a></li>
+                    <li><a href="#perfil" data-es="Perfil" data-en="Profile">Perfil</a></li>
+                    <li><a href="#proyectos" data-es="Proyectos" data-en="Projects">Proyectos</a></li>
+                    <li><a href="#contacto" data-es="Contacto" data-en="Contact">Contacto</a></li>
+                </ul>
+                <div class="language-selector">
+                    <button class="lang-btn active" onclick="changeLanguage('es')">ES</button>
+                    <button class="lang-btn" onclick="changeLanguage('en')">EN</button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Customer Master Data <span class="gradient-text">Analyst</span></h1>
+                <p>Especializado en gestión y optimización de datos maestros en ERP (SAP Business One), automatización
+                    de procesos y desarrollo web. Más de 4 años transformando datos en valor operativo y soluciones
+                    escalables.</p>
+                <div class="cta-buttons">
+                    <a href="#proyectos" class="btn btn-primary">Ver Proyectos</a>
+                    <a href="#contacto" class="btn btn-secondary">Contacto</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="code-window">
+                    <div class="window-header">
+                        <div class="window-dot dot-red"></div>
+                        <div class="window-dot dot-yellow"></div>
+                        <div class="window-dot dot-green"></div>
+                    </div>
+                    <div class="code-content">
+                        <div class="code-line"><span class="keyword">const</span> <span
+                                class="function">optimizar</span> = <span class="keyword">async</span> () => {</div>
+                        <div class="code-line"> <span class="comment">// De 10 minutos a 30 segundos</span></div>
+                        <div class="code-line"> <span class="keyword">await</span> <span
+                                class="function">mejorarRendimiento</span>();</div>
+                        <div class="code-line"> <span class="keyword">return</span> <span class="string">'Éxito
+                                ✓'</span>;</div>
+                        <div class="code-line">};</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Perfil Section -->
+    <section id="perfil" class="section">
+        <h2 class="section-title">Perfil <span class="gradient-text">Profesional</span></h2>
+        <p class="section-subtitle">Ingeniero enfocado en resultados medibles</p>
+        <div class="profile-card">
+            <p>
+                Customer & Digital Systems Specialist con experiencia en la administración, optimización y gobierno de
+                datos maestros en entornos ERP (SAP Business One), sistemas internos y plataformas digitales. Realicé
+                procesos de limpieza, validación, normalización y estandarización de datos de clientes, proveedores y
+                productos, asegurando información confiable y consistente para los procesos Order to Cash, la generación
+                de reportes operativos y el soporte a la toma de decisiones.
+            </p>
+            <p style="margin-top: 1.5rem;">
+                Trabajé de manera colaborativa con equipos multidisciplinarios (operativos, comerciales y tecnológicos),
+                donde gestioné accesos, roles y permisos, y apliqué controles internos y buenas prácticas de seguridad
+                de la información, contribuyendo a la continuidad del negocio y al cumplimiento de estándares
+                corporativos. Implementé y automaticé reportes, optimicé el rendimiento de sistemas y participé en la
+                mejora de procesos digitales, logrando reducciones significativas en tiempos de carga y en la ejecución
+                de tareas manuales.
+            </p>
+            <p style="margin-top: 1.5rem;">
+                Mi perfil se caracteriza por un enfoque analítico y técnico, orientado a la experiencia del usuario y la
+                mejora continua. Brindé soporte y administración a plataformas digitales y web, integrando soluciones de
+                automatización y gestión de contenido, con el objetivo de incrementar la eficiencia operativa, asegurar
+                la consistencia de la información y garantizar la alineación con lineamientos regulatorios y de
+                compliance.
+            </p>
+        </div>
+    </section>
+
+    <!-- Proyectos Section -->
+    <section id="proyectos" class="section">
+        <h2 class="section-title">Proyectos <span class="gradient-text">Destacados</span></h2>
+        <p class="section-subtitle">Soluciones que generan impacto real</p>
+
+        <div class="projects-grid">
+            <!-- Proyecto 1: J&C Delicias -->
+            <article class="project-card">
+                <div class="project-header">
+                    <span class="project-number">01</span>
+                    <h3 class="project-title">Customer & Master Data Management</h3>
+                    <p class="project-company">J&C Delicias – Grupo de Restaurantes (13 sedes)</p>
+                </div>
+                <div class="project-content">
+                    <div class="star-section">
+                        <span class="star-label" id="label-situation">📊 Situación</span>
+                        <div class="star-content" id="project1-situation">
+                            La empresa enfrentaba más de 70.000 registros de datos maestros obsoletos y duplicados en
+                            sistemas
+                            internos y ERP, con tiempos de carga de 100-120 segundos que afectaban la productividad de
+                            más de
+                            1.000 usuarios internos. Los procesos de facturación electrónica tardaban hasta 7 minutos,
+                            impactando negativamente la operación diaria.
+                        </div>
+                    </div>
+
+                    <div class="star-section">
+                        <span class="star-label" id="label-task">🎯 Tarea</span>
+                        <div class="star-content" id="project1-task">
+                            Gestionar y optimizar datos maestros de clientes, proveedores y productos en SAP Business
+                            One,
+                            ICG Manager y FrontRest, asegurando información precisa, reduciendo tiempos de procesamiento
+                            y
+                            mejorando la experiencia de usuarios internos.
+                        </div>
+                    </div>
+
+                    <div class="star-section">
+                        <span class="star-label" id="label-action">⚡ Acción</span>
+                        <div class="star-content" id="project1-action">
+                            <ul>
+                                <li>Depuré más de 70.000 registros obsoletos y duplicados en sistemas internos</li>
+                                <li>Administré SAP Business One: creación y actualización de datos maestros</li>
+                                <li>Gestioné usuarios, roles y licencias para 20 colaboradores</li>
+                                <li>Estandaricé códigos internos, precios y estructuras de información</li>
+                                <li>Implementé limpieza periódica de data y backups automatizados</li>
+                                <li>Optimicé ICG Manager y FrontRest: normalización de más de 100.000 registros</li>
+                                <li>Desarrollé dashboards en Power BI para análisis de ventas</li>
+                                <li>Implementé reportes diarios automáticos</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="star-section">
+                        <span class="star-label">🏆 Resultados</span>
+                        <div class="results-grid">
+                            <div class="result-item">
+                                <strong>Tiempo de Carga</strong>
+                                De 100-120 segundos a menos de 10 segundos
+                            </div>
+                            <div class="result-item">
+                                <strong>Facturación Electrónica</strong>
+                                De 7 minutos a 1 minuto
+                            </div>
+                            <div class="result-item">
+                                <strong>Usuarios Impactados</strong>
+                                Mejora para más de 1.000 usuarios internos
+                            </div>
+                            <div class="result-item">
+                                <strong>Calidad de Datos</strong>
+                                70.000+ registros depurados y optimizados
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="skills">
+                        <span class="skill-pill">SAP Business One</span>
+                        <span class="skill-pill">Master Data Management</span>
+                        <span class="skill-pill">SQL Server</span>
+                        <span class="skill-pill">Power BI</span>
+                        <span class="skill-pill">Data Governance</span>
+                        <span class="skill-pill">ERP Administration</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Proyecto 2: Servicios de Valor Agregado en IT -->
+            <article class="project-card">
+                <div class="project-header">
+                    <span class="project-number">02</span>
+                    <h3 class="project-title">Disaster Recovery & Virtualización Crítica</h3>
+                    <p class="project-company">Servicios de Valor Agregado en IT SAS</p>
+                </div>
+                <div class="project-content">
+                    <div class="star-section">
+                        <span class="star-label">📊 Situación</span>
+                        <div class="star-content">
+                            Más de 27 organizaciones, incluyendo grandes cadenas de supermercados, farmacéuticas,
+                            entidades
+                            públicas y una de las minas más grandes del país, requerían protección de información
+                            crítica,
+                            continuidad operativa y planes de contingencia ante posibles fallas de infraestructura.
+                        </div>
+                    </div>
+
+                    <div class="star-section">
+                        <span class="star-label">🎯 Tarea</span>
+                        <div class="star-content">
+                            Implementar soluciones de virtualización, diseñar estrategias de respaldo automatizado bajo
+                            modelo
+                            3-2-1-1, y ejecutar planes de seguridad personalizados para garantizar la continuidad del
+                            negocio
+                            y protección de datos empresariales críticos.
+                        </div>
+                    </div>
+
+                    <div class="star-section">
+                        <span class="star-label">⚡ Acción</span>
+                        <div class="star-content">
+                            <ul>
+                                <li>Implementé virtualización de máquinas con bases de datos críticas</li>
+                                <li>Diseñé planes de respaldo y contingencia para continuidad operativa</li>
+                                <li>Diseñé estrategia de seguridad y respaldo modelo 3-2-1-1 para minería</li>
+                                <li>Participé en instalación de hardware y software de respaldo</li>
+                                <li>Ejecuté planes de seguridad personalizados para más de 27 clientes</li>
+                                <li>Administré información crítica para múltiples sectores empresariales</li>
+                                <li>Garanticé confidencialidad, integridad y disponibilidad de datos</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="star-section">
+                        <span class="star-label">🏆 Resultados</span>
+                        <div class="results-grid">
+                            <div class="result-item">
+                                <strong>Continuidad Operativa</strong>
+                                Evité interrupciones críticas con VM activa
+                            </div>
+                            <div class="result-item">
+                                <strong>Clientes Protegidos</strong>
+                                Más de 27 organizaciones empresariales
+                            </div>
+                            <div class="result-item">
+                                <strong>Seguridad de Datos</strong>
+                                Implementación modelo 3-2-1-1 exitosa
+                            </div>
+                            <div class="result-item">
+                                <strong>Sectores Cubiertos</strong>
+                                Retail, farmacia, minería y sector público
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="skills">
+                        <span class="skill-pill">Disaster Recovery</span>
+                        <span class="skill-pill">Virtualización</span>
+                        <span class="skill-pill">Backup Strategy 3-2-1-1</span>
+                        <span class="skill-pill">Business Continuity</span>
+                        <span class="skill-pill">Data Security</span>
+                        <span class="skill-pill">Infrastructure Management</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Proyecto 3: Soy AI - Automatización -->
+            <article class="project-card">
+                <div class="project-header">
+                    <span class="project-number">03</span>
+                    <h3 class="project-title">Automatización de Procesos & Chatbots</h3>
+                    <p class="project-company">Soy AI – Desarrollo y Automatización (Rol Actual)</p>
+                </div>
+                <div class="project-content">
+                    <div class="star-section">
+                        <span class="star-label">📊 Situación</span>
+                        <div class="star-content">
+                            Organizaciones enfrentaban altos volúmenes de interacciones sin capacidad de atención
+                            eficiente,
+                            con procesos manuales para gestión de agendas, confirmaciones y seguimiento que consumían
+                            tiempo
+                            valioso y generaban retrasos en la respuesta al cliente.
+                        </div>
+                    </div>
+
+                    <div class="star-section">
+                        <span class="star-label">🎯 Tarea</span>
+                        <div class="star-content">
+                            Diseñar, desarrollar y administrar automatizaciones y chatbots para optimizar procesos
+                            operativos
+                            y atención al cliente, reduciendo tareas manuales, mejorando tiempos de respuesta y
+                            asegurando
+                            información consistente y trazable.
+                        </div>
+                    </div>
+
+                    <div class="star-section">
+                        <span class="star-label">⚡ Acción</span>
+                        <div class="star-content">
+                            <ul>
+                                <li>Implementé flujos automatizados para gestión de agendas y confirmaciones</li>
+                                <li>Desarrollé chatbots para WhatsApp, Instagram y otros canales digitales</li>
+                                <li>Administré datos de usuarios, reglas de negocio y validaciones</li>
+                                <li>Colaboré con áreas operativas y comerciales para adaptar flujos</li>
+                                <li>Automaticé seguimiento y envío de comunicaciones masivas</li>
+                                <li>Aseguré trazabilidad y consistencia de información</li>
+                                <li>Mejoré continuidad del servicio y experiencia del usuario</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="star-section">
+                        <span class="star-label">🏆 Resultados</span>
+                        <div class="results-grid">
+                            <div class="result-item">
+                                <strong>Eficiencia Operativa</strong>
+                                Reducción significativa de tareas manuales
+                            </div>
+                            <div class="result-item">
+                                <strong>Tiempo de Respuesta</strong>
+                                Mejora en velocidad de atención
+                            </div>
+                            <div class="result-item">
+                                <strong>Experiencia de Usuario</strong>
+                                Satisfacción mejorada en procesos automatizados
+                            </div>
+                            <div class="result-item">
+                                <strong>Escalabilidad</strong>
+                                Soluciones adaptables a múltiples clientes
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="skills">
+                        <span class="skill-pill">Python</span>
+                        <span class="skill-pill">JavaScript</span>
+                        <span class="skill-pill">Chatbot Development</span>
+                        <span class="skill-pill">Process Automation</span>
+                        <span class="skill-pill">WhatsApp Business API</span>
+                        <span class="skill-pill">Data Management</span>
+                    </div>
+                </div>
+            </article>
+            <!-- Proyecto 4: Página Web Soy AI -->
+            <article class="project-card">
+                <div class="project-header">
+                    <span class="project-number">04</span>
+                    <h3 class="project-title">Desarrollo Web Frontend & Backend</h3>
+                    <p class="project-company">Soy AI – Sitio Web Corporativo</p>
+                </div>
+                <div class="project-content">
+                    <div class="star-section">
+                        <span class="star-label">📊 Situación</span>
+                        <div class="star-content">
+                            Soy AI requería una presencia digital profesional y moderna que reflejara sus capacidades en
+                            automatización e inteligencia artificial, con un sitio web que comunicara efectivamente sus
+                            servicios y generara confianza en clientes potenciales.
+                        </div>
+                    </div>
+
+                    <div class="star-section">
+                        <span class="star-label">🎯 Tarea</span>
+                        <div class="star-content">
+                            Diseñar y desarrollar un sitio web completo (frontend y backend) que presentara los
+                            servicios
+                            de automatización, chatbots e inteligencia artificial de manera atractiva, funcional y
+                            optimizada
+                            para conversión.
+                        </div>
+                    </div>
+
+                    <div class="star-section">
+                        <span class="star-label">⚡ Acción</span>
+                        <div class="star-content">
+                            <ul>
+                                <li>Desarrollé frontend con HTML, CSS y JavaScript moderno</li>
+                                <li>Implementé diseño responsive para todos los dispositivos</li>
+                                <li>Desarrollé backend para gestión de contenido y contacto</li>
+                                <li>Optimicé rendimiento y tiempos de carga</li>
+                                <li>Implementé SEO y mejores prácticas web</li>
+                                <li>Integré formularios de contacto y automatizaciones</li>
+                                <li>Configuré hosting y dominio: <a href="https://www.soyai.com.co/" target="_blank"
+                                        style="color: var(--accent);">www.soyai.com.co</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="star-section">
+                        <span class="star-label">🏆 Resultados</span>
+                        <div class="results-grid">
+                            <div class="result-item">
+                                <strong>Presencia Digital</strong>
+                                Sitio web profesional en producción
+                            </div>
+                            <div class="result-item">
+                                <strong>Experiencia de Usuario</strong>
+                                Diseño moderno y navegación intuitiva
+                            </div>
+                            <div class="result-item">
+                                <strong>Performance</strong>
+                                Optimización de carga y rendimiento
+                            </div>
+                            <div class="result-item">
+                                <strong>Funcionalidad</strong>
+                                Sistema completo frontend y backend
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="skills">
+                        <span class="skill-pill">HTML5</span>
+                        <span class="skill-pill">CSS3</span>
+                        <span class="skill-pill">JavaScript</span>
+                        <span class="skill-pill">Responsive Design</span>
+                        <span class="skill-pill">Backend Development</span>
+                        <span class="skill-pill">SEO</span>
+                        <span class="skill-pill">Web Hosting</span>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contacto">
+        <div class="footer-content">
+            <h2 class="section-title" style="margin-bottom: 1.5rem;" id="contact-title">Hablemos</h2>
+            <div class="social-links">
+                <a href="Moncateo224@gmail.com" title="Email">✉️</a>
+                <a href="https://www.linkedin.com/in/mateo-moncada-moncada-9188b0245/" target="_blank"
+                    title="LinkedIn">💼</a>
+                <a href="https://wa.me/573128166832" title="Teléfono">📱</a>
+            </div>
+            <p style="color: var(--text-muted); margin-bottom: 0.5rem;">Mateo Moncada Moncada</p>
+            <p style="color: var(--text-muted); font-size: 0.9rem;" id="footer-role">Customer Master Data Analyst |
+                Desarrollador</p>
+            <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 0.8rem;">📧 <a
+                    href="Moncateo224@gmail.com" class="0"
+                    data-cfemail="084567666b697c6d673a3a3c486f65696164266b6765">Moncateo224@gmail.com</a></p>
+            <p style="color: var(--text-muted); margin-top: 1rem;" id="footer-copyright">© 2026 Mateo Moncada. Todos los
+                derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script>
+        // Generar partículas animadas
+        const particlesContainer = document.getElementById('particles');
+        const particleCount = 50;
+
+        for (let i = 0; i < particleCount; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.top = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 20 + 's';
+            particle.style.animationDuration = (Math.random() * 10 + 15) + 's';
+            particlesContainer.appendChild(particle);
+        }
+
+        // Animación de entrada para elementos cuando entran en viewport
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.project-card, .profile-card').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Scroll suave para navegación
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Efecto parallax suave en hero
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero-visual');
+            if (hero && scrolled < window.innerHeight) {
+                hero.style.transform = `translateY(${scrolled * 0.3}px)`;
+            }
+        });
+
+        // Sistema de traducción
+        const translations = {
+            es: {
+                // Hero
+                heroTitle: 'Customer Master Data <span class="gradient-text">Analyst</span>',
+                heroDesc: 'Especializado en gestión y optimización de datos maestros en ERP (SAP Business One), automatización de procesos y desarrollo web. Más de 4 años transformando datos en valor operativo y soluciones escalables.',
+                btnProjects: 'Ver Proyectos',
+                btnContact: 'Contacto',
+                // Profile
+                profileTitle: 'Perfil <span class="gradient-text">Profesional</span>',
+                profileSubtitle: 'Ingeniero enfocado en resultados medibles',
+                profileText1: 'Customer & Digital Systems Specialist con experiencia en la administración, optimización y gobierno de datos maestros en entornos ERP (SAP Business One), sistemas internos y plataformas digitales. Realicé procesos de limpieza, validación, normalización y estandarización de datos de clientes, proveedores y productos, asegurando información confiable y consistente para los procesos Order to Cash, la generación de reportes operativos y el soporte a la toma de decisiones.',
+                profileText2: 'Trabajé de manera colaborativa con equipos multidisciplinarios (operativos, comerciales y tecnológicos), donde gestioné accesos, roles y permisos, y apliqué controles internos y buenas prácticas de seguridad de la información, contribuyendo a la continuidad del negocio y al cumplimiento de estándares corporativos. Implementé y automaticé reportes, optimicé el rendimiento de sistemas y participé en la mejora de procesos digitales, logrando reducciones significativas en tiempos de carga y en la ejecución de tareas manuales.',
+                profileText3: 'Mi perfil se caracteriza por un enfoque analítico y técnico, orientado a la experiencia del usuario y la mejora continua. Brindé soporte y administración a plataformas digitales y web, integrando soluciones de automatización y gestión de contenido, con el objetivo de incrementar la eficiencia operativa, asegurar la consistencia de la información y garantizar la alineación con lineamientos regulatorios y de compliance.',
+                // Projects
+                projectsTitle: 'Proyectos <span class="gradient-text">Destacados</span>',
+                projectsSubtitle: 'Soluciones que generan impacto real',
+                starSituation: '📊 Situación',
+                starTask: '🎯 Tarea',
+                starAction: '⚡ Acción',
+                starResults: '🏆 Resultados',
+                // Proyecto 1
+                project1Title: 'Customer & Master Data Management',
+                project1Company: 'J&C Delicias – Grupo de Restaurantes (13 sedes)',
+                project1Situation: 'La empresa enfrentaba más de 70.000 registros de datos maestros obsoletos y duplicados en sistemas internos y ERP, con tiempos de carga de 100-120 segundos que afectaban la productividad de más de 1.000 usuarios internos. Los procesos de facturación electrónica tardaban hasta 7 minutos, impactando negativamente la operación diaria.',
+                project1Task: 'Gestionar y optimizar datos maestros de clientes, proveedores y productos en SAP Business One, ICG Manager y FrontRest, asegurando información precisa, reduciendo tiempos de procesamiento y mejorando la experiencia de usuarios internos.',
+                project1Action: '<ul><li>Depuré más de 70.000 registros obsoletos y duplicados en sistemas internos</li><li>Administré SAP Business One: creación y actualización de datos maestros</li><li>Gestioné usuarios, roles y licencias para 20 colaboradores</li><li>Estandaricé códigos internos, precios y estructuras de información</li><li>Implementé limpieza periódica de data y backups automatizados</li><li>Optimicé ICG Manager y FrontRest: normalización de más de 100.000 registros</li><li>Desarrollé dashboards en Power BI para análisis de ventas</li><li>Implementé reportes diarios automáticos</li></ul>',
+                project1Result1: 'Tiempo de Carga',
+                project1Result1Desc: 'De 100-120 segundos a menos de 10 segundos',
+                project1Result2: 'Facturación Electrónica',
+                project1Result2Desc: 'De 7 minutos a 1 minuto',
+                project1Result3: 'Usuarios Impactados',
+                project1Result3Desc: 'Mejora para más de 1.000 usuarios internos',
+                project1Result4: 'Calidad de Datos',
+                project1Result4Desc: '70.000+ registros depurados y optimizados',
+                // Proyecto 2
+                project2Title: 'Disaster Recovery & Virtualización Crítica',
+                project2Company: 'Servicios de Valor Agregado en IT SAS',
+                project2Situation: 'Más de 27 organizaciones, incluyendo grandes cadenas de supermercados, farmacéuticas, entidades públicas y una de las minas más grandes del país, requerían protección de información crítica, continuidad operativa y planes de contingencia ante posibles fallas de infraestructura.',
+                project2Task: 'Implementar soluciones de virtualización, diseñar estrategias de respaldo automatizado bajo modelo 3-2-1-1, y ejecutar planes de seguridad personalizados para garantizar la continuidad del negocio y protección de datos empresariales críticos.',
+                project2Action: '<ul><li>Implementé virtualización de máquinas con bases de datos críticas</li><li>Diseñé planes de respaldo y contingencia para continuidad operativa</li><li>Diseñé estrategia de seguridad y respaldo modelo 3-2-1-1 para minería</li><li>Participé en instalación de hardware y software de respaldo</li><li>Ejecuté planes de seguridad personalizados para más de 27 clientes</li><li>Administré información crítica para múltiples sectores empresariales</li><li>Garanticé confidencialidad, integridad y disponibilidad de datos</li></ul>',
+                project2Result1: 'Continuidad Operativa',
+                project2Result1Desc: 'Evité interrupciones críticas con VM activa',
+                project2Result2: 'Clientes Protegidos',
+                project2Result2Desc: 'Más de 27 organizaciones empresariales',
+                project2Result3: 'Seguridad de Datos',
+                project2Result3Desc: 'Implementación modelo 3-2-1-1 exitosa',
+                project2Result4: 'Sectores Cubiertos',
+                project2Result4Desc: 'Retail, farmacia, minería y sector público',
+                // Proyecto 3
+                project3Title: 'Automatización de Procesos & Chatbots',
+                project3Company: 'Soy AI – Desarrollo y Automatización (Rol Actual)',
+                project3Situation: 'Organizaciones enfrentaban altos volúmenes de interacciones sin capacidad de atención eficiente, con procesos manuales para gestión de agendas, confirmaciones y seguimiento que consumían tiempo valioso y generaban retrasos en la respuesta al cliente.',
+                project3Task: 'Diseñar, desarrollar y administrar automatizaciones y chatbots para optimizar procesos operativos y atención al cliente, reduciendo tareas manuales, mejorando tiempos de respuesta y asegurando información consistente y trazable.',
+                project3Action: '<ul><li>Implementé flujos automatizados para gestión de agendas y confirmaciones</li><li>Desarrollé chatbots para WhatsApp, Instagram y otros canales digitales</li><li>Administré datos de usuarios, reglas de negocio y validaciones</li><li>Colaboré con áreas operativas y comerciales para adaptar flujos</li><li>Automaticé seguimiento y envío de comunicaciones masivas</li><li>Aseguré trazabilidad y consistencia de información</li><li>Mejoré continuidad del servicio y experiencia del usuario</li></ul>',
+                project3Result1: 'Eficiencia Operativa',
+                project3Result1Desc: 'Reducción significativa de tareas manuales',
+                project3Result2: 'Tiempo de Respuesta',
+                project3Result2Desc: 'Mejora en velocidad de atención',
+                project3Result3: 'Experiencia de Usuario',
+                project3Result3Desc: 'Satisfacción mejorada en procesos automatizados',
+                project3Result4: 'Escalabilidad',
+                project3Result4Desc: 'Soluciones adaptables a múltiples clientes',
+                // Proyecto 4
+                project4Title: 'Desarrollo Web Frontend & Backend',
+                project4Company: 'Soy AI – Sitio Web Corporativo',
+                project4Situation: 'Soy AI requería una presencia digital profesional y moderna que reflejara sus capacidades en automatización e inteligencia artificial, con un sitio web que comunicara efectivamente sus servicios y generara confianza en clientes potenciales.',
+                project4Task: 'Diseñar y desarrollar un sitio web completo (frontend y backend) que presentara los servicios de automatización, chatbots e inteligencia artificial de manera atractiva, funcional y optimizada para conversión.',
+                project4Action: '<ul><li>Desarrollé frontend con HTML, CSS y JavaScript moderno</li><li>Implementé diseño responsive para todos los dispositivos</li><li>Desarrollé backend para gestión de contenido y contacto</li><li>Optimicé rendimiento y tiempos de carga</li><li>Implementé SEO y mejores prácticas web</li><li>Integré formularios de contacto y automatizaciones</li><li>Configuré hosting y dominio: <a href="https://www.soyai.com.co/" target="_blank" style="color: var(--accent);">www.soyai.com.co</a></li></ul>',
+                project4Result1: 'Presencia Digital',
+                project4Result1Desc: 'Sitio web profesional en producción',
+                project4Result2: 'Experiencia de Usuario',
+                project4Result2Desc: 'Diseño moderno y navegación intuitiva',
+                project4Result3: 'Performance',
+                project4Result3Desc: 'Optimización de carga y rendimiento',
+                project4Result4: 'Funcionalidad',
+                project4Result4Desc: 'Sistema completo frontend y backend',
+                // Contact/Footer
+                contactTitle: 'Hablemos',
+                footerRole: 'Customer Master Data Analyst | Desarrollador',
+                footerCopyright: '© 2026 Mateo Moncada. Todos los derechos reservados.'
+            },
+            en: {
+                // Hero
+                heroTitle: 'Customer Master Data <span class="gradient-text">Analyst</span>',
+                heroDesc: 'Specialized in master data management and optimization in ERP (SAP Business One), process automation, and web development. Over 4 years transforming data into operational value and scalable solutions.',
+                btnProjects: 'View Projects',
+                btnContact: 'Contact',
+                // Profile
+                profileTitle: 'Professional <span class="gradient-text">Profile</span>',
+                profileSubtitle: 'Engineer focused on measurable results',
+                profileText1: 'Customer & Digital Systems Specialist with experience in administration, optimization, and governance of master data in ERP environments (SAP Business One), internal systems, and digital platforms. Performed data cleansing, validation, normalization, and standardization processes for customers, suppliers, and products, ensuring reliable and consistent information for Order to Cash processes, operational report generation, and decision-making support.',
+                profileText2: 'Worked collaboratively with multidisciplinary teams (operations, commercial, and technology), managing access, roles, and permissions, applying internal controls and information security best practices, contributing to business continuity and compliance with corporate standards. Implemented and automated reports, optimized system performance, and participated in digital process improvements, achieving significant reductions in loading times and manual task execution.',
+                profileText3: 'My profile is characterized by an analytical and technical approach, user experience-oriented and focused on continuous improvement. Provided support and administration to digital and web platforms, integrating automation and content management solutions, aiming to increase operational efficiency, ensure information consistency, and guarantee alignment with regulatory and compliance guidelines.',
+                // Projects
+                projectsTitle: 'Featured <span class="gradient-text">Projects</span>',
+                projectsSubtitle: 'Solutions that generate real impact',
+                starSituation: '📊 Situation',
+                starTask: '🎯 Task',
+                starAction: '⚡ Action',
+                starResults: '🏆 Results',
+                // Project 1
+                project1Title: 'Customer & Master Data Management',
+                project1Company: 'J&C Delicias – Restaurant Group (13 locations)',
+                project1Situation: 'The company faced more than 70,000 obsolete and duplicate master data records in internal systems and ERP, with loading times of 100-120 seconds affecting the productivity of more than 1,000 internal users. Electronic invoicing processes took up to 7 minutes, negatively impacting daily operations.',
+                project1Task: 'Manage and optimize master data for customers, suppliers, and products in SAP Business One, ICG Manager, and FrontRest, ensuring accurate information, reducing processing times, and improving the experience of internal users.',
+                project1Action: '<ul><li>Cleaned up more than 70,000 obsolete and duplicate records in internal systems</li><li>Administered SAP Business One: creation and update of master data</li><li>Managed users, roles, and licenses for 20 employees</li><li>Standardized internal codes, prices, and information structures</li><li>Implemented periodic data cleaning and automated backups</li><li>Optimized ICG Manager and FrontRest: normalization of more than 100,000 records</li><li>Developed Power BI dashboards for sales analysis</li><li>Implemented automatic daily reports</li></ul>',
+                project1Result1: 'Loading Time',
+                project1Result1Desc: 'From 100-120 seconds to less than 10 seconds',
+                project1Result2: 'Electronic Invoicing',
+                project1Result2Desc: 'From 7 minutes to 1 minute',
+                project1Result3: 'Users Impacted',
+                project1Result3Desc: 'Improvement for more than 1,000 internal users',
+                project1Result4: 'Data Quality',
+                project1Result4Desc: '70,000+ records cleaned and optimized',
+                // Project 2
+                project2Title: 'Disaster Recovery & Critical Virtualization',
+                project2Company: 'IT Added Value Services SAS',
+                project2Situation: 'More than 27 organizations, including large supermarket chains, pharmaceutical companies, public entities, and one of the largest mines in the country, required protection of critical information, operational continuity, and contingency plans for possible infrastructure failures.',
+                project2Task: 'Implement virtualization solutions, design automated backup strategies under the 3-2-1-1 model, and execute customized security plans to ensure business continuity and protection of critical business data.',
+                project2Action: '<ul><li>Implemented virtualization of machines with critical databases</li><li>Designed backup and contingency plans for operational continuity</li><li>Designed security and backup strategy 3-2-1-1 model for mining</li><li>Participated in installation of backup hardware and software</li><li>Executed customized security plans for more than 27 clients</li><li>Managed critical information for multiple business sectors</li><li>Ensured confidentiality, integrity, and availability of data</li></ul>',
+                project2Result1: 'Operational Continuity',
+                project2Result1Desc: 'Avoided critical interruptions with active VM',
+                project2Result2: 'Protected Clients',
+                project2Result2Desc: 'More than 27 business organizations',
+                project2Result3: 'Data Security',
+                project2Result3Desc: 'Successful 3-2-1-1 model implementation',
+                project2Result4: 'Sectors Covered',
+                project2Result4Desc: 'Retail, pharmacy, mining, and public sector',
+                // Project 3
+                project3Title: 'Process Automation & Chatbots',
+                project3Company: 'Soy AI – Development and Automation (Current Role)',
+                project3Situation: 'Organizations faced high volumes of interactions without efficient service capacity, with manual processes for managing schedules, confirmations, and follow-ups that consumed valuable time and generated delays in customer response.',
+                project3Task: 'Design, develop, and manage automation and chatbots to optimize operational processes and customer service, reducing manual tasks, improving response times, and ensuring consistent and traceable information.',
+                project3Action: '<ul><li>Implemented automated flows for schedule management and confirmations</li><li>Developed chatbots for WhatsApp, Instagram, and other digital channels</li><li>Managed user data, business rules, and validations</li><li>Collaborated with operational and commercial areas to adapt flows</li><li>Automated tracking and sending of mass communications</li><li>Ensured traceability and consistency of information</li><li>Improved service continuity and user experience</li></ul>',
+                project3Result1: 'Operational Efficiency',
+                project3Result1Desc: 'Significant reduction in manual tasks',
+                project3Result2: 'Response Time',
+                project3Result2Desc: 'Improvement in service speed',
+                project3Result3: 'User Experience',
+                project3Result3Desc: 'Improved satisfaction in automated processes',
+                project3Result4: 'Scalability',
+                project3Result4Desc: 'Solutions adaptable to multiple clients',
+                // Project 4
+                project4Title: 'Frontend & Backend Web Development',
+                project4Company: 'Soy AI – Corporate Website',
+                project4Situation: 'Soy AI required a professional and modern digital presence that reflected its capabilities in automation and artificial intelligence, with a website that effectively communicated its services and generated trust in potential clients.',
+                project4Task: 'Design and develop a complete website (frontend and backend) that presented automation, chatbot, and artificial intelligence services in an attractive, functional, and conversion-optimized manner.',
+                project4Action: '<ul><li>Developed frontend with modern HTML, CSS, and JavaScript</li><li>Implemented responsive design for all devices</li><li>Developed backend for content and contact management</li><li>Optimized performance and loading times</li><li>Implemented SEO and web best practices</li><li>Integrated contact forms and automations</li><li>Configured hosting and domain: <a href="https://www.soyai.com.co/" target="_blank" style="color: var(--accent);">www.soyai.com.co</a></li></ul>',
+                project4Result1: 'Digital Presence',
+                project4Result1Desc: 'Professional website in production',
+                project4Result2: 'User Experience',
+                project4Result2Desc: 'Modern design and intuitive navigation',
+                project4Result3: 'Performance',
+                project4Result3Desc: 'Loading and performance optimization',
+                project4Result4: 'Functionality',
+                project4Result4Desc: 'Complete frontend and backend system',
+                // Contact/Footer
+                contactTitle: 'Let\'s Talk',
+                footerRole: 'Customer Master Data Analyst | Developer',
+                footerCopyright: '© 2026 Mateo Moncada. All rights reserved.'
+            }
+        };
+
+        let currentLang = 'es';
+
+        function changeLanguage(lang) {
+            currentLang = lang;
+
+            // Actualizar botones activos
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+
+            // Actualizar menú de navegación
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.textContent = link.getAttribute(`data-${lang}`);
+            });
+
+            // Actualizar contenido
+            const t = translations[lang];
+
+            // Hero section
+            document.querySelector('.hero-text h1').innerHTML = t.heroTitle;
+            document.querySelector('.hero-text p').textContent = t.heroDesc;
+            document.querySelectorAll('.btn-primary')[0].textContent = t.btnProjects;
+            document.querySelectorAll('.btn-secondary')[0].textContent = t.btnContact;
+
+            // Profile section
+            document.querySelectorAll('.section-title')[0].innerHTML = t.profileTitle;
+            document.querySelectorAll('.section-subtitle')[0].textContent = t.profileSubtitle;
+
+            const profileCard = document.querySelector('.profile-card');
+            profileCard.innerHTML = `
+                <p>${t.profileText1}</p>
+                <p style="margin-top: 1.5rem;">${t.profileText2}</p>
+                <p style="margin-top: 1.5rem;">${t.profileText3}</p>
+            `;
+
+            // Projects section
+            document.querySelectorAll('.section-title')[1].innerHTML = t.projectsTitle;
+            document.querySelectorAll('.section-subtitle')[1].textContent = t.projectsSubtitle;
+
+            // STAR labels (Situación, Tarea, Acción, Resultados)
+            document.querySelectorAll('.star-label').forEach(label => {
+                const emoji = label.textContent.substring(0, 2); // Conservar el emoji
+                const text = label.textContent.substring(3);
+
+                if (text.includes('Situación') || text.includes('Situation')) {
+                    label.textContent = t.starSituation;
+                } else if (text.includes('Tarea') || text.includes('Task')) {
+                    label.textContent = t.starTask;
+                } else if (text.includes('Acción') || text.includes('Action')) {
+                    label.textContent = t.starAction;
+                } else if (text.includes('Resultado') || text.includes('Result')) {
+                    label.textContent = t.starResults;
+                }
+            });
+
+            // Traducir todos los proyectos
+            const projectCards = document.querySelectorAll('.project-card');
+
+            // Proyecto 1
+            if (projectCards[0]) {
+                projectCards[0].querySelector('.project-title').textContent = t.project1Title;
+                projectCards[0].querySelector('.project-company').textContent = t.project1Company;
+                const contents1 = projectCards[0].querySelectorAll('.star-content');
+                if (contents1[0]) contents1[0].textContent = t.project1Situation;
+                if (contents1[1]) contents1[1].textContent = t.project1Task;
+                if (contents1[2]) contents1[2].innerHTML = t.project1Action;
+
+                const results1 = projectCards[0].querySelectorAll('.result-item');
+                if (results1[0]) {
+                    results1[0].querySelector('strong').textContent = t.project1Result1;
+                    results1[0].childNodes[2].textContent = t.project1Result1Desc;
+                }
+                if (results1[1]) {
+                    results1[1].querySelector('strong').textContent = t.project1Result2;
+                    results1[1].childNodes[2].textContent = t.project1Result2Desc;
+                }
+                if (results1[2]) {
+                    results1[2].querySelector('strong').textContent = t.project1Result3;
+                    results1[2].childNodes[2].textContent = t.project1Result3Desc;
+                }
+                if (results1[3]) {
+                    results1[3].querySelector('strong').textContent = t.project1Result4;
+                    results1[3].childNodes[2].textContent = t.project1Result4Desc;
+                }
+            }
+
+            // Proyecto 2
+            if (projectCards[1]) {
+                projectCards[1].querySelector('.project-title').textContent = t.project2Title;
+                projectCards[1].querySelector('.project-company').textContent = t.project2Company;
+                const contents2 = projectCards[1].querySelectorAll('.star-content');
+                if (contents2[0]) contents2[0].textContent = t.project2Situation;
+                if (contents2[1]) contents2[1].textContent = t.project2Task;
+                if (contents2[2]) contents2[2].innerHTML = t.project2Action;
+
+                const results2 = projectCards[1].querySelectorAll('.result-item');
+                if (results2[0]) {
+                    results2[0].querySelector('strong').textContent = t.project2Result1;
+                    results2[0].childNodes[2].textContent = t.project2Result1Desc;
+                }
+                if (results2[1]) {
+                    results2[1].querySelector('strong').textContent = t.project2Result2;
+                    results2[1].childNodes[2].textContent = t.project2Result2Desc;
+                }
+                if (results2[2]) {
+                    results2[2].querySelector('strong').textContent = t.project2Result3;
+                    results2[2].childNodes[2].textContent = t.project2Result3Desc;
+                }
+                if (results2[3]) {
+                    results2[3].querySelector('strong').textContent = t.project2Result4;
+                    results2[3].childNodes[2].textContent = t.project2Result4Desc;
+                }
+            }
+
+            // Proyecto 3
+            if (projectCards[2]) {
+                projectCards[2].querySelector('.project-title').textContent = t.project3Title;
+                projectCards[2].querySelector('.project-company').textContent = t.project3Company;
+                const contents3 = projectCards[2].querySelectorAll('.star-content');
+                if (contents3[0]) contents3[0].textContent = t.project3Situation;
+                if (contents3[1]) contents3[1].textContent = t.project3Task;
+                if (contents3[2]) contents3[2].innerHTML = t.project3Action;
+
+                const results3 = projectCards[2].querySelectorAll('.result-item');
+                if (results3[0]) {
+                    results3[0].querySelector('strong').textContent = t.project3Result1;
+                    results3[0].childNodes[2].textContent = t.project3Result1Desc;
+                }
+                if (results3[1]) {
+                    results3[1].querySelector('strong').textContent = t.project3Result2;
+                    results3[1].childNodes[2].textContent = t.project3Result2Desc;
+                }
+                if (results3[2]) {
+                    results3[2].querySelector('strong').textContent = t.project3Result3;
+                    results3[2].childNodes[2].textContent = t.project3Result3Desc;
+                }
+                if (results3[3]) {
+                    results3[3].querySelector('strong').textContent = t.project3Result4;
+                    results3[3].childNodes[2].textContent = t.project3Result4Desc;
+                }
+            }
+
+            // Proyecto 4
+            if (projectCards[3]) {
+                projectCards[3].querySelector('.project-title').textContent = t.project4Title;
+                projectCards[3].querySelector('.project-company').textContent = t.project4Company;
+                const contents4 = projectCards[3].querySelectorAll('.star-content');
+                if (contents4[0]) contents4[0].textContent = t.project4Situation;
+                if (contents4[1]) contents4[1].textContent = t.project4Task;
+                if (contents4[2]) contents4[2].innerHTML = t.project4Action;
+
+                const results4 = projectCards[3].querySelectorAll('.result-item');
+                if (results4[0]) {
+                    results4[0].querySelector('strong').textContent = t.project4Result1;
+                    results4[0].childNodes[2].textContent = t.project4Result1Desc;
+                }
+                if (results4[1]) {
+                    results4[1].querySelector('strong').textContent = t.project4Result2;
+                    results4[1].childNodes[2].textContent = t.project4Result2Desc;
+                }
+                if (results4[2]) {
+                    results4[2].querySelector('strong').textContent = t.project4Result3;
+                    results4[2].childNodes[2].textContent = t.project4Result3Desc;
+                }
+                if (results4[3]) {
+                    results4[3].querySelector('strong').textContent = t.project4Result4;
+                    results4[3].childNodes[2].textContent = t.project4Result4Desc;
+                }
+            }
+
+            // Footer
+            document.getElementById('contact-title').textContent = t.contactTitle;
+            document.getElementById('footer-role').textContent = t.footerRole;
+            document.getElementById('footer-copyright').textContent = t.footerCopyright;
+        }
+    </script>
+</body>
+
+</html>
